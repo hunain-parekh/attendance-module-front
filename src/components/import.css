@@ -1,0 +1,15 @@
+
+
+.import_btn{
+    color: white;
+    background-color: green;
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+}
+
+.import_form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px
+}
