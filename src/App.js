@@ -6,9 +6,14 @@ import AttendanceTable from "./components/AttendanceTable";
 function App() {
   const [data, setData] = useState([]);
   const fecthAttendanceData = async () => {
-    await fetch("http://127.0.0.1:8000/api/attendance-data")
+    try{
+      await fetch("http://127.0.0.1:8000/api/attendance-data")
       .then((response) => response.json())
       .then((result) => setData(result.data));
+    }
+    catch(e){
+      console.log(e);
+    }
   };
   useEffect(() => {
     fecthAttendanceData();
@@ -16,8 +21,8 @@ function App() {
 
   return (
     <div className="App">
-      <Import />
-      {data.length > 0 && <AttendanceTable data={data} />}
+      <Import fecthAttendanceData={fecthAttendanceData}/>
+      <AttendanceTable data={data} />
     </div>
   );
 }

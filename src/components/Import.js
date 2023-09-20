@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./import.css";
 import axios from "axios";
 
-function Import() {
+function Import(props) {
   const [file, setFile] = useState("");
   const handleUpload = () => {
     const formData = new FormData();
@@ -14,6 +14,7 @@ function Import() {
         },
       })
       .then((response) => {
+        props.fecthAttendanceData();
         console.log(response.data);
       })
       .catch((error) => {
